@@ -1,19 +1,23 @@
 # Usa una imagen base de Node.js
 FROM node:18
+
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia el package.json y package-lock.json
+# Copia package.json y package-lock.json
 COPY package*.json ./
 
-# Instala las dependencias de la aplicación
-RUN npm install --production
+# Instala todas las dependencias
+RUN npm install
 
-# Copia todo el código de la aplicación
+# Copia el resto del código fuente
 COPY . .
 
-# Expone el puerto en el que tu aplicación escuchará
+# Compila el código TypeScript
+RUN npm run build
+
+# Expone el puerto en el que tu API escuchará
 EXPOSE 4000
 
-# Comando para ejecutar la aplicación
-CMD ["npm", "start"]
+# Comando para ejecutar la aplicación en producción
+CMD ["node", "dist/index.js"]
