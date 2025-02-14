@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 config(); // Cargar variables de entorno
 
 const app: Application = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.API_PAYMENT_PORT || 2025;
 
 dotenv.config();
 
