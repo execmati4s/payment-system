@@ -9,3 +9,4 @@ services:
       - "2025:2025"  # Ajusta el puerto según sea necesario
     environment:
       - NODE_ENV=development # O development según tus necesidades
+    restart: always

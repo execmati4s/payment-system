@@ -20,6 +20,14 @@ app.use(express.json());
 
 // Rutas
 app.use("/api", routes);
+
+
+// Ruta principal
+
+app.get("/", (req, res) => {
+  res.send("API de pagos");
+});
+
 // Servidor
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
